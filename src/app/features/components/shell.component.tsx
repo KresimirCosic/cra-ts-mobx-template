@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { FC } from 'react';
 import { RouterView } from 'mobx-state-router';
 
 import Header from './header.component';
@@ -13,7 +13,7 @@ interface ShellProps {
   rootStore: RootStore;
 }
 
-const Shell = () => {
+const Shell: FC = () => {
   const { routerStore } = useRootStore();
 
   return (
