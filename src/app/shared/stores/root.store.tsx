@@ -4,8 +4,8 @@ import routes from '../routing/routes.routing';
 
 const notFound = new RouterState('notFound');
 
-class RootStore {
+export default class RootStore {
   routerStore = new RouterStore(this, routes, notFound);
 }
 
-export default RootStore;
+export const rootStore = new RootStore();

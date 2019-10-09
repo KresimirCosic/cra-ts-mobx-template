@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RootStoreContext } from '../../../App';
+import RootStoreContext from '../context/rootStore.context';
 
 function withRootStore(Component: any) {
   return function WrapperComponent(props: any) {

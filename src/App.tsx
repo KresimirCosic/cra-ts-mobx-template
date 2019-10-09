@@ -1,26 +1,25 @@
-import React, { Component, createContext } from 'react';
+import React, { FC } from 'react';
 import { HistoryAdapter } from 'mobx-state-router';
 
 import Shell from './app/features/components/shell.component';
 import history from './app/shared/routing/history.routing';
-import RootStore from './app/shared/stores/root.store';
-
-const rootStore = new RootStore();
-export const RootStoreContext = createContext(rootStore);
+import { rootStore } from './app/shared/stores/root.store';
+import RootStoreContext from './app/shared/context/rootStore.context';
+import useRootStore from './app/shared/hooks/useRootStore.hook';
 
 const historyAdapter = new HistoryAdapter(rootStore.routerStore, history);
 historyAdapter.observeRouterStateChanges();
 
-class App extends Component {
-  render() {
-    return (
-      <div className='App'>
-        <RootStoreContext.Provider value={rootStore}>
-          <Shell />
-        </RootStoreContext.Provider>
-      </div>
-    );
-  }
-}
+const App: FC = () => {
+  const rootStore = useRootStore();
+
+  return (
+    <div className='App'>
+      <RootStoreContext.Provider value={rootStore}>
+        <Shell />
+      </RootStoreContext.Provider>
+    </div>
+  );
+};
 
 export default App;
