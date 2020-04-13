@@ -1,7 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-import withRootStore from "../../shared/hocs/withRootStore.hoc";
 import useRootStore from "../../shared/hooks/useRootStore.hook";
 
 const Home = () => {
@@ -14,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default withRootStore(observer(Home));
+export default observer(Home);
