@@ -11,7 +11,7 @@ export default class UserInterfaceStore {
     return this.overlay;
   }
 
-  menuStatus(): boolean {
+  get menuStatus(): boolean {
     return this.menu;
   }
 
